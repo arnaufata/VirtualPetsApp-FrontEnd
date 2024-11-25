@@ -27,6 +27,10 @@ const PetsPage = () => {
     fetchPets();
   }, [navigate]);
 
+  const getPetImagePath = (type, color) => {
+    return `/images/pets/${type.toLowerCase()}_${color.toLowerCase()}.png`;
+  };
+
   return (
     <div style={styles.container}>
       <h2>Les teves mascotes</h2>
@@ -34,8 +38,8 @@ const PetsPage = () => {
         {pets.map((pet) => (
           <div key={pet.id} style={styles.petCard}>
             <img
-              src={pet.image || "placeholder.png"} // Substitueix amb imatge per defecte
-              alt={pet.name}
+              src={getPetImagePath(pet.type, pet.color)} // Camí dinàmic a la imatge
+              alt={`${pet.type} in ${pet.color}`}
               style={styles.petImage}
             />
             <h3>{pet.name}</h3>
@@ -48,7 +52,7 @@ const PetsPage = () => {
           </div>
         ))}
       </div>
-      <button style={styles.backButton} onClick={() => navigate("/pets")}>
+      <button style={styles.backButton} onClick={() => navigate("/")}>
         Tornar enrere
       </button>
       {selectedPet && (

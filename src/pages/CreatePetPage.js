@@ -3,7 +3,7 @@ import { createPet } from "../services/petsService";
 import { useNavigate } from "react-router-dom";
 
 const CreatePetPage = () => {
-  const [formData, setFormData] = useState({ name: "", type: "DOG", color: "" });
+  const [formData, setFormData] = useState({ name: "", type: "DOG", color: "red" });
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
@@ -52,14 +52,18 @@ const CreatePetPage = () => {
           <option value="UNICORN">Unicorn</option>
           <option value="ALIEN">Alien</option>
         </select>
-        <input
-          type="text"
+        <select
           name="color"
-          placeholder="Color"
           value={formData.color}
           onChange={handleChange}
           required
-        />
+        >
+          <option value="red">Red</option>
+          <option value="white">White</option>
+          <option value="green">Green</option>
+          <option value="brown">Brown</option>
+          <option value="black">Black</option>
+        </select>
         <button type="submit" style={styles.button}>
           Create Pet
         </button>
