@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { registerUser } from "../../services/authService";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 
 const Register = () => {
   const [formData, setFormData] = useState({ username: "", email: "", password: "" });
@@ -14,7 +16,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await registerUser(formData); // Asegúrate que registerUser soporte el campo email
+      await registerUser(formData);
       setMessage("Registre completat!");
       navigate("/login");
     } catch (error) {
@@ -27,33 +29,42 @@ const Register = () => {
       <div style={styles.card}>
         <h2 style={styles.title}>Register</h2>
         <form onSubmit={handleSubmit} style={styles.form}>
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={formData.username}
-            onChange={handleChange}
-            style={styles.input}
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
-            style={styles.input}
-            required
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={handleChange}
-            style={styles.input}
-            required
-          />
+          <div style={styles.inputGroup}>
+            <FontAwesomeIcon icon={faUser} style={styles.icon} />
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              value={formData.username}
+              onChange={handleChange}
+              style={styles.input}
+              required
+            />
+          </div>
+          <div style={styles.inputGroup}>
+            <FontAwesomeIcon icon={faEnvelope} style={styles.icon} />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              style={styles.input}
+              required
+            />
+          </div>
+          <div style={styles.inputGroup}>
+            <FontAwesomeIcon icon={faLock} style={styles.icon} />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              style={styles.input}
+              required
+            />
+          </div>
           <button type="submit" style={styles.button}>
             Register
           </button>
@@ -76,7 +87,7 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     height: "100vh",
-    backgroundColor: "#f0f8ff", // Color de fons agradable
+    background: "linear-gradient(135deg, #2196F3, #03A9F4)",
   },
   card: {
     backgroundColor: "white",
@@ -97,11 +108,23 @@ const styles = {
     flexDirection: "column",
     gap: "15px",
   },
-  input: {
-    padding: "10px",
-    fontSize: "16px",
+  inputGroup: {
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
     border: "1px solid #ccc",
     borderRadius: "5px",
+    padding: "10px",
+  },
+  input: {
+    border: "none",
+    outline: "none",
+    flex: 1,
+    fontSize: "16px",
+  },
+  icon: {
+    color: "#888",
+    fontSize: "18px",
   },
   button: {
     backgroundColor: "#4CAF50",

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { loginUser } from "../../services/authService";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 
 const Login = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -29,20 +31,26 @@ const Login = () => {
       <div style={styles.card}>
         <h2 style={styles.title}>Login</h2>
         <form onSubmit={handleSubmit} style={styles.form}>
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            onChange={handleChange}
-            style={styles.input}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            onChange={handleChange}
-            style={styles.input}
-          />
+          <div style={styles.inputGroup}>
+            <FontAwesomeIcon icon={faUser} style={styles.icon} />
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              onChange={handleChange}
+              style={styles.input}
+            />
+          </div>
+          <div style={styles.inputGroup}>
+            <FontAwesomeIcon icon={faLock} style={styles.icon} />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              onChange={handleChange}
+              style={styles.input}
+            />
+          </div>
           <button type="submit" style={styles.button}>
             Login
           </button>
@@ -65,7 +73,7 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     height: "100vh",
-    backgroundColor: "#f0f8ff", // Color de fons agradable
+    background: "linear-gradient(135deg, #FF5722, #FFC107)",
   },
   card: {
     backgroundColor: "white",
@@ -86,11 +94,23 @@ const styles = {
     flexDirection: "column",
     gap: "15px",
   },
-  input: {
-    padding: "10px",
-    fontSize: "16px",
+  inputGroup: {
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
     border: "1px solid #ccc",
     borderRadius: "5px",
+    padding: "10px",
+  },
+  input: {
+    border: "none",
+    outline: "none",
+    flex: 1,
+    fontSize: "16px",
+  },
+  icon: {
+    color: "#888",
+    fontSize: "18px",
   },
   button: {
     backgroundColor: "#4CAF50",
