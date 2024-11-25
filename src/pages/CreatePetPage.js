@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { createPet } from "../services/petsService";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar"; // Importar la Navbar
 
 const CreatePetPage = () => {
   const [formData, setFormData] = useState({ name: "", type: "DOG", color: "red" });
@@ -30,6 +31,7 @@ const CreatePetPage = () => {
 
   return (
     <div style={styles.container}>
+      <Navbar /> {/* Afegir la Navbar */}
       <h2>Create a New Pet</h2>
       <form onSubmit={handleSubmit} style={styles.form}>
         <input
@@ -69,9 +71,6 @@ const CreatePetPage = () => {
         </button>
       </form>
       {message && <p>{message}</p>}
-      <button style={styles.backButton} onClick={() => navigate("/pets")}>
-        Cancel·lar i tornar enrere
-      </button>
     </div>
   );
 };
@@ -82,6 +81,7 @@ const styles = {
     padding: "20px",
     backgroundColor: "#f3e5f5", // Fons lila clar
     minHeight: "100vh",
+    paddingTop: "80px", // Ajust per a la Navbar
   },
   form: {
     display: "flex",
@@ -100,15 +100,6 @@ const styles = {
     color: "white",
     border: "none",
     padding: "10px 15px",
-    cursor: "pointer",
-    borderRadius: "10px",
-  },
-  backButton: {
-    marginTop: "10px",
-    backgroundColor: "#f44336",
-    color: "white",
-    border: "none",
-    padding: "10px 20px",
     cursor: "pointer",
     borderRadius: "10px",
   },

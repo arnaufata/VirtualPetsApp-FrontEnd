@@ -24,8 +24,14 @@ export const deletePet = async (petId, token) => {
 
 // Actualitzar una mascota
 export const updatePet = async (petId, petData, token) => {
+  if (!petData || !petData.name) {
+    throw new Error("Pet data is invalid. Name is required.");
+  }
   return axios.put(`${API_BASE_URL}/pets/update/${petId}`, petData, {
-    headers: { Authorization: `Bearer ${token}` },
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
   });
 };
 

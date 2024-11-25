@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { getAllPets } from "../services/petsService";
-import { useNavigate } from "react-router-dom";
 import PetInteractionModal from "./PetInteractionModal";
+import Navbar from "../components/Navbar";
+import { useNavigate } from "react-router-dom";
 
 const PetsPage = () => {
   const [pets, setPets] = useState([]);
-  const [selectedPet, setSelectedPet] = useState(null); // Mascota seleccionada per interactuar
+  const [selectedPet, setSelectedPet] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,12 +34,13 @@ const PetsPage = () => {
 
   return (
     <div style={styles.container}>
+      <Navbar />
       <h2>Les teves mascotes</h2>
       <div style={styles.petsGrid}>
         {pets.map((pet) => (
           <div key={pet.id} style={styles.petCard}>
             <img
-              src={getPetImagePath(pet.type, pet.color)} // Camí dinàmic a la imatge
+              src={getPetImagePath(pet.type, pet.color)}
               alt={`${pet.type} in ${pet.color}`}
               style={styles.petImage}
             />
@@ -52,9 +54,6 @@ const PetsPage = () => {
           </div>
         ))}
       </div>
-      <button style={styles.backButton} onClick={() => navigate("/pets")}>
-        Tornar enrere
-      </button>
       {selectedPet && (
         <PetInteractionModal
           pet={selectedPet}
@@ -77,8 +76,9 @@ const styles = {
   container: {
     textAlign: "center",
     padding: "20px",
-    backgroundColor: "#e9f7fa", // Fons blau clar
+    backgroundColor: "#e9f7fa",
     minHeight: "100vh",
+    paddingTop: "100px",
   },
   petsGrid: {
     display: "flex",
@@ -100,7 +100,7 @@ const styles = {
     height: "150px",
     objectFit: "contain",
     borderRadius: "10px",
-    backgroundColor: "#f9f9f9", // Fons gris clar darrere de les imatges
+    backgroundColor: "#f9f9f9",
   },
   button: {
     marginTop: "10px",
@@ -108,15 +108,6 @@ const styles = {
     color: "white",
     border: "none",
     padding: "10px",
-    borderRadius: "10px",
-    cursor: "pointer",
-  },
-  backButton: {
-    marginTop: "20px",
-    backgroundColor: "#607D8B",
-    color: "white",
-    border: "none",
-    padding: "10px 20px",
     borderRadius: "10px",
     cursor: "pointer",
   },

@@ -26,12 +26,19 @@ const PetInteractionModal = ({ pet, onClose, onUpdate }) => {
   };
 
   const handleUpdate = async () => {
+    if (!newName.trim()) {
+      alert("El nom no pot estar buit.");
+      return;
+    }
+
     const token = localStorage.getItem("token");
     try {
-      await updatePet(pet.id, { name: newName }, token); // Només actualitzar el nom
+      await updatePet(pet.id, { name: newName.trim() }, token); // Només actualitzar el nom
       onUpdate();
+      onClose();
     } catch (error) {
       console.error("Error updating pet:", error);
+      alert("No s'ha pogut actualitzar el nom de la mascota. Torna-ho a intentar.");
     }
   };
 
@@ -44,7 +51,7 @@ const PetInteractionModal = ({ pet, onClose, onUpdate }) => {
       <div style={styles.modal}>
         <h3>{pet.name}</h3>
         <img
-          src={getPetImagePath(pet.type, pet.color)} // Camí dinàmic per mostrar la imatge
+          src={getPetImagePath(pet.type, pet.color)} // Utilitzem la funció definida localment
           alt={`${pet.type} in ${pet.color}`}
           style={styles.image}
         />
