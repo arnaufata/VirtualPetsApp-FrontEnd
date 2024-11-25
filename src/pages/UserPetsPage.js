@@ -39,35 +39,40 @@ const styles = {
   container: {
     textAlign: "center",
     padding: "20px",
+    backgroundColor: "#c8e6c9", // Fons verd clar
+    minHeight: "100vh",
   },
   header: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    borderBottom: "1px solid #ccc",
-    paddingBottom: "10px",
-    marginBottom: "20px",
+    borderBottom: "2px solid #388E3C",
+    paddingBottom: "15px",
+    marginBottom: "30px",
   },
   logoutButton: {
-    backgroundColor: "red",
+    backgroundColor: "#FF5722",
     color: "white",
     border: "none",
     padding: "10px 20px",
     cursor: "pointer",
-    borderRadius: "5px",
+    borderRadius: "10px",
   },
   buttonsContainer: {
     display: "flex",
     justifyContent: "center",
     gap: "20px",
+    flexWrap: "wrap",
   },
   button: {
     backgroundColor: "#4CAF50",
     color: "white",
     border: "none",
-    padding: "10px 20px",
+    padding: "15px 20px",
     cursor: "pointer",
-    borderRadius: "5px",
+    borderRadius: "10px",
+    fontSize: "16px",
+    boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
   },
 };
 

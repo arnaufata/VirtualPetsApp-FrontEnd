@@ -80,22 +80,28 @@ const styles = {
   container: {
     textAlign: "center",
     padding: "20px",
+    backgroundColor: "#f3e5f5", // Fons lila clar
+    minHeight: "100vh",
   },
   form: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    gap: "10px",
+    gap: "15px",
     margin: "20px auto",
-    maxWidth: "300px",
+    maxWidth: "350px",
+    padding: "20px",
+    backgroundColor: "#fff",
+    borderRadius: "15px",
+    boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
   },
   button: {
-    backgroundColor: "#4CAF50",
+    backgroundColor: "#3F51B5",
     color: "white",
     border: "none",
-    padding: "10px 20px",
+    padding: "10px 15px",
     cursor: "pointer",
-    borderRadius: "5px",
+    borderRadius: "10px",
   },
   backButton: {
     marginTop: "10px",
@@ -104,7 +110,7 @@ const styles = {
     border: "none",
     padding: "10px 20px",
     cursor: "pointer",
-    borderRadius: "5px",
+    borderRadius: "10px",
   },
 };
 

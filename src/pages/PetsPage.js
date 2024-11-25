@@ -52,7 +52,7 @@ const PetsPage = () => {
           </div>
         ))}
       </div>
-      <button style={styles.backButton} onClick={() => navigate("/")}>
+      <button style={styles.backButton} onClick={() => navigate("/pets")}>
         Tornar enrere
       </button>
       {selectedPet && (
@@ -77,6 +77,8 @@ const styles = {
   container: {
     textAlign: "center",
     padding: "20px",
+    backgroundColor: "#e9f7fa", // Fons blau clar
+    minHeight: "100vh",
   },
   petsGrid: {
     display: "flex",
@@ -85,33 +87,37 @@ const styles = {
     justifyContent: "center",
   },
   petCard: {
-    border: "1px solid #ccc",
-    borderRadius: "10px",
-    padding: "10px",
+    border: "2px solid #4CAF50",
+    borderRadius: "15px",
+    padding: "15px",
     textAlign: "center",
     width: "200px",
+    backgroundColor: "#fff",
+    boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
   },
   petImage: {
     width: "100%",
     height: "150px",
-    objectFit: "contain", // Ajust correcte per mostrar la imatge completa
+    objectFit: "contain",
+    borderRadius: "10px",
+    backgroundColor: "#f9f9f9", // Fons gris clar darrere de les imatges
   },
   button: {
     marginTop: "10px",
-    backgroundColor: "#4CAF50",
+    backgroundColor: "#FF5722",
     color: "white",
     border: "none",
     padding: "10px",
-    borderRadius: "5px",
+    borderRadius: "10px",
     cursor: "pointer",
   },
   backButton: {
     marginTop: "20px",
-    backgroundColor: "#2196F3",
+    backgroundColor: "#607D8B",
     color: "white",
     border: "none",
     padding: "10px 20px",
-    borderRadius: "5px",
+    borderRadius: "10px",
     cursor: "pointer",
   },
 };
