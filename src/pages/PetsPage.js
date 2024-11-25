@@ -60,7 +60,6 @@ const PetsPage = () => {
           pet={selectedPet}
           onClose={() => setSelectedPet(null)}
           onUpdate={() => {
-            // Actualitzar mascotes després d'interactuar
             const fetchPets = async () => {
               const token = localStorage.getItem("token");
               const response = await getAllPets(token);
@@ -95,7 +94,7 @@ const styles = {
   petImage: {
     width: "100%",
     height: "150px",
-    objectFit: "cover",
+    objectFit: "contain", // Ajust correcte per mostrar la imatge completa
   },
   button: {
     marginTop: "10px",

@@ -3,7 +3,6 @@ import { interactWithPet, deletePet, updatePet } from "../services/petsService";
 
 const PetInteractionModal = ({ pet, onClose, onUpdate }) => {
   const [newName, setNewName] = useState(pet.name);
-  const [newColor, setNewColor] = useState(pet.color);
 
   const handleInteraction = async (action) => {
     const token = localStorage.getItem("token");
@@ -29,11 +28,15 @@ const PetInteractionModal = ({ pet, onClose, onUpdate }) => {
   const handleUpdate = async () => {
     const token = localStorage.getItem("token");
     try {
-      await updatePet(pet.id, { name: newName, color: newColor }, token);
+      await updatePet(pet.id, { name: newName }, token); // Només actualitzar el nom
       onUpdate();
     } catch (error) {
       console.error("Error updating pet:", error);
     }
+  };
+
+  const getPetImagePath = (type, color) => {
+    return `/images/pets/${type.toLowerCase()}_${color.toLowerCase()}.png`;
   };
 
   return (
@@ -41,8 +44,8 @@ const PetInteractionModal = ({ pet, onClose, onUpdate }) => {
       <div style={styles.modal}>
         <h3>{pet.name}</h3>
         <img
-          src={pet.image || "placeholder.png"}
-          alt={pet.name}
+          src={getPetImagePath(pet.type, pet.color)} // Camí dinàmic per mostrar la imatge
+          alt={`${pet.type} in ${pet.color}`}
           style={styles.image}
         />
         <p>Energy: {pet.energyLevel}</p>
@@ -55,12 +58,6 @@ const PetInteractionModal = ({ pet, onClose, onUpdate }) => {
             value={newName}
             onChange={(e) => setNewName(e.target.value)}
             placeholder="New name"
-          />
-          <input
-            type="text"
-            value={newColor}
-            onChange={(e) => setNewColor(e.target.value)}
-            placeholder="New color"
           />
           <button style={styles.button} onClick={handleUpdate}>
             Update
@@ -110,7 +107,7 @@ const styles = {
   image: {
     width: "100%",
     height: "150px",
-    objectFit: "cover",
+    objectFit: "contain", // Ajust correcte per mostrar la imatge completa
     marginBottom: "10px",
   },
   button: {
