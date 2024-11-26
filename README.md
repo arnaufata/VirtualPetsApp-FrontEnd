@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# VirtualPetsApp - FrontEnd
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**VirtualPetsApp** és una aplicació desenvolupada amb **React**, **Vite** i **Axios** que permet als usuaris registrar-se, iniciar sessió i gestionar una llista de mascotes virtuals. Aquesta aplicació inclou funcionalitats d'autenticació, protecció de rutes i operacions CRUD (Crear, Llegir, Actualitzar i Eliminar) per a les mascotes.
 
-## Available Scripts
+## ✨ Característiques
+- **Autenticació d'usuaris**: Registre, inici de sessió i tancament de sessió.
+- **Gestió de mascotes**: Crear, personalitzar, veure, actualitzar i eliminar mascotes.
+- **Protecció de rutes**: Accés restringit a certes rutes per als usuaris no autenticats.
+- **Interfície interactiva**: Navegació fluïda entre les diferents pàgines de l'aplicació.
+- **Navbar funcional**: Inclou botons de logout, navegació a les pàgines de mascotes, creació i inici.
 
-In the project directory, you can run:
+## 🛠️ Requisits
+- **Node.js** i **npm** (Node Package Manager)
+- **Vite** (com a eina de construcció de l'aplicació)
 
-### `npm start`
+## 📥 Instal·lació
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1. Clonar el repositori
+```bash
+git clone https://github.com/arnaufata/VirtualPetsApp-FrontEnd.git
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 2. Instal·lar les dependències
 
-### `npm test`
+Navega a la carpeta del projecte i executa:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install
 
-### `npm run build`
+## 3. Configuració del servidor
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Assegura't que el servidor de l'API estigui executant-se a `http://localhost:8080` o modifica la `baseURL` a `src/api/config.js` si el servidor està en una altra URL.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Execució del projecte
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Per iniciar l'aplicació en mode de desenvolupament, executa:
 
-### `npm run eject`
+```bash
+npm run dev
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Això iniciarà l'aplicació a `http://localhost:5173`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📂 Estructura del projecte
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+VirtualPetsApp-FrontEnd/
+├── public/
+│   └── images/
+│       └── pets/
+├── src/
+│   ├── api/
+│   ├── components/
+│   │   ├── auth/
+│   │   ├── pets/
+│   │   └── navbar/
+│   ├── pages/
+│   ├── services/
+│   └── App.jsx
+├── package.json
+└── vite.config.js
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Explicació:
+- `public/images/pets/`: Conté imatges de les mascotes.
+- `src/api/`: Configuració de l'API i `baseURL`.
+- `src/components/`: Components reutilitzables, incloent Navbar, components d'autenticació i gestió de mascotes.
+- `src/pages/`: Pàgines principals de l'aplicació (Login, Register, UserPetsPage, PetsPage, CreatePetPage).
+- `src/services/`: Serveis que interactuen amb l'API utilitzant Axios.
 
-## Learn More
+## 🐾 Ús de l'aplicació
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### **Autenticació**
+- **Registre**: Crea un compte nou des de la pàgina de registre.
+- **Inici de sessió**: Inicia sessió amb les credencials creades durant el registre.
+- **Tancament de sessió**: Elimina el token d'autenticació del `localStorage`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### **Gestió de Mascotes**
+- **Crear una mascota**: Navega a "Crear Mascota" per afegir una nova mascota.
+- **Personalitzar una mascota**: Assigna un nom i un color a la mascota.
+- **Veure les teves mascotes**: Mostra una llista amb totes les teves mascotes.
+- **Actualitzar o eliminar mascotes**: Selecciona una mascota per canviar el nom o eliminar-la.
 
-### Code Splitting
+### **Protecció de rutes**
+Algunes rutes estan protegides i només accessibles per als usuaris autenticats. Si un usuari no autenticat intenta accedir-hi, serà redirigit a la pàgina de login.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🎨 Personalització
 
-### Analyzing the Bundle Size
+Pots modificar els estils CSS i els components segons les teves necessitats. Cada pàgina conté un objecte `styles` per definir els seus estils.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📦 Dependències
 
-### Making a Progressive Web App
+- **React**: Biblioteca principal per a la construcció d'interfícies d'usuari.
+- **Axios**: Client HTTP per realitzar sol·licituds a l'API.
+- **Vite**: Eina de desenvolupament ràpida per a projectes frontend.
+- **React Router**: Per gestionar la navegació dins l'aplicació.
+- **Font Awesome**: Per a icones personalitzades.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🤝 Contribució
 
-### Advanced Configuration
+Si desitges contribuir al projecte:
+1. Fes un **fork** del repositori.
+2. Crea una nova branca per als teus canvis:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+   ```bash
+   git checkout -b feature/nova-funcionalitat
 
-### Deployment
+3. Fes un **commit** dels teus canvis:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+   ```bash
+   git commit -m "Descripció dels canvis"
 
-### `npm run build` fails to minify
+4. Envia els teus canvis al teu repositori:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   ```bash
+   git push origin feature/nova-funcionalitat
+
+5. Obre un **pull request**..
