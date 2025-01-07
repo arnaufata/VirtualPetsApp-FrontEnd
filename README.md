@@ -44,6 +44,7 @@ Això iniciarà l'aplicació a `http://localhost:5173`
 
 ## 📂 Estructura del projecte
 
+```bash
 VirtualPetsApp-FrontEnd/
 ├── public/
 │   └── images/
@@ -59,6 +60,7 @@ VirtualPetsApp-FrontEnd/
 │   └── App.jsx
 ├── package.json
 └── vite.config.js
+```
 
 ### Explicació:
 - `public/images/pets/`: Conté imatges de les mascotes.
