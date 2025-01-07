@@ -18,6 +18,7 @@
 ### 1. Clonar el repositori
 ```bash
 git clone https://github.com/arnaufata/VirtualPetsApp-FrontEnd.git
+```
 
 ## 2. Instal·lar les dependències
 
@@ -25,6 +26,7 @@ Navega a la carpeta del projecte i executa:
 
 ```bash
 npm install
+```
 
 ## 3. Configuració del servidor
 
@@ -36,6 +38,7 @@ Per iniciar l'aplicació en mode de desenvolupament, executa:
 
 ```bash
 npm run dev
+```
 
 Això iniciarà l'aplicació a `http://localhost:5173`
 
@@ -100,15 +103,18 @@ Si desitges contribuir al projecte:
 
    ```bash
    git checkout -b feature/nova-funcionalitat
+   ```
 
 3. Fes un **commit** dels teus canvis:
 
    ```bash
    git commit -m "Descripció dels canvis"
+   ```
 
 4. Envia els teus canvis al teu repositori:
 
    ```bash
    git push origin feature/nova-funcionalitat
+   ```
 
 5. Obre un **pull request**..
